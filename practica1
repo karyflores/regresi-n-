@@ -1,0 +1,116 @@
+> #variables en r 
+> a<-4
+> b<-3
+> a+b
+[1] 7
+> suma<-a+b
+> suma
+[1] 7
+> 3+4
+[1] 7
+> help(sum)
+> #operacones comparativas 
+> a>b # a es mayor a b 
+[1] TRUE
+> a>=a #a es mayor o igual a a 
+[1] TRUE
+> a<b # a es menor q b 
+[1] FALSE
+> a<=b # a es menor o igual q b 
+[1] FALSE
+> a==b # a es igual a b 
+[1] FALSE
+> a==4 # a es igual a 4 
+[1] TRUE
+> a!-b #a es diferente de b 
+Error: unexpected '!' in "a!"
+> a!=b # a es diferente a b 
+[1] TRUE
+> 
+> 
+> #concepto de funcion 
+> x<-abs(-2.5) #abs es el valos absoluto 
+> x
+[1] 2.5
+> help(abs)
+> #pedir ayuda en R
+> hrlp(abs)
+Error: could not find function "hrlp"
+> help(abs)
+> 
+> #para asignar a variable en R se usa una =
+> x
+[1] 2.5
+> #para asignar a variable en R se usa una <- 
+> x<-"hola" #para la varible de tipo caracter 
+> x
+[1] "hola"
+> z=6 #el igual solo funciona en una sola direccion 
+> #se van a ocupar las variables de tipo caracter y numerico 
+> ciudad<-"toluca" #es una entrada 
+> nombres<-("karla","Rodrigo","Miguel","Samuel") #caracter 4 
+Error: unexpected ',' in "nombres<-("karla","
+> nombres<-c("karla","Rodrigo","Miguel","Samuel")
+> edad<-c(28,17,49,31) # es numerico con cuatro entradas 4 
+> ## se utiliza la funcon class para preguntar a R que tipo son 
+> class(nombres)
+[1] "character"
+> class(edad)
+[1] "numeric"
+> 
+> 
+> #vamos a ocupar un data frame 
+> base1<-data.frame(nombre,edad) #se va a crear una base da datos (filas y columnas )
+Error in data.frame(nombre, edad) : object 'nombre' not found
+> base1<-data.frame(nombres,edad)
+> View(base1) #para ver la base de datos 
+> #se tienen que tener los mismos datos en las columnas y poner NA por los datos perdidos y que me salga el programa 
+> ls(base1) #es para ver la lista de las variables de mi base 1 
+[1] "edad"    "nombres"
+> base1$edad   #para ver los datos de la variable ; se tiene q ver la ruta de donde quiero esa variable 
+[1] 28 17 49 31
+> 
+> 
+> #ejercicio crear una variable de nombre sexo con cuatro entradas y# donde hombre es 1 y mujer es 2 , #la primera entrada es mujer las otras dos son hombre
+> #despues de crear esta variable generar una nueva base de nombre base 2 con tres variables , nombres edad y sexo 
+> 
+> 
+> sexo<-("2","1","1","1")
+Error: unexpected ',' in "sexo<-("2","
+> sexo<-c("2","1","1","1")
+> base2<-data.frame(nombres,edad,sexo)
+> table(base2$sexo)  #para checar un resultado 
+
+1 2 
+3 1 
+> table(base1$edad)
+
+17 28 31 49 
+ 1  1  1  1 
+> table(base2$nombres)#es para ver si me jala de la base 2 los nombres 
+
+  karla  Miguel Rodrigo  Samuel 
+      1       1       1       1 
+> palumnos<-c(40,120,60,80)#es alumnos de l fac de economia 
+> etiq<-c("actua","eco","ri","neg")
+> help("pie")
+> pie(palumnos)
+> pie(alumnos,etiq)
+Error in pie(alumnos, etiq) : object 'alumnos' not found
+> pie(alumnos, etiq)
+Error in pie(alumnos, etiq) : object 'alumnos' not found
+> pie(etiq)
+Error in pie(etiq) : 'x' values must be positive.
+> etiq<- c("actua","eco","ri","neg")
+> pie(palumnos,etiq)
+> pie(palumnos,etiq,main =)
+> pie(palumnos,etiq,main ="Grafica de pie de la facultad de economia")
+> pie(palumnos,etiq,main ="Grafica de pie de la facultad de economia",sub="fuente:facultad de economia")
+> # a la grafica de pastel le vamos  a cambiar los colores despuesd e agregar todos los argumentos 
+> pie(palumnos,etiq,main ="Grafica de pie de la facultad de economia",sub="fuente:facultad de economia",col=c("blue","red","pink","yellow"))
+> #si quiero elejir otra gama de colores se pueen usar los numeros de los colores 
+> #con radius yo elijo el radio de la grafica de pastel 
+> pie(palumnos,etiq,main ="Grafica de pie de la facultad de economia",sub="fuente:facultad de economia",col=c("blue","red","pink","yellow"),radius=.5)
+> #clockwise=FALSE  es como para q el orden quede de la grafica este en sentido de las manecillas del reloj 
+> #depende si le poner TRUE o FAlSE
+> 

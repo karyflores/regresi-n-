@@ -1,0 +1,67 @@
+ a<-2+3 #vector longitud 1 
+  b<-c(3,4)-c(6,1) #esta diferencia es un vector con dos entradas 
+  b
+  c<-c(4,5,6)*c(5,2,1) #es un vector de tres entradas 
+  #c va hacer la operacion entrada por entrada 
+  c
+  d<-c(1:50,7,99)
+  length(d)
+  length(c)
+  #operaciones logicas con vectores 
+  d>=45  #q valores de mi vector d son mayores a 45 
+  d==50 #de mi vesctor d cual es igual a 50 
+  d!=35 # cuales valores d es diferente a 35 
+  
+  #sececiones con operador y funcion para generar las suceciones es con seq
+  
+  help(seq)
+  #para genrar una secuencia lo hago de diferentes formas 
+  z<-seq(0,30,3) #lo puedo poner asi o con from , to y by 
+  z
+  #seq(from=0,to=30,by=3)
+  #puede cambiar el orden de los argumentos pero no afecta los valores dados 
+  seq(from=0,to=30,by=3)
+  seq(by=3,to=30,from=0)
+  seq(10)
+  seq(2,10)
+  seq(from=3,to=10)
+  secuencia<-seq(1,10,by=1)
+  secuencia1<-seq(0,100,by=10)
+  sec2<-seq(300,130,by=3)
+  sec2<-seq(300,130,by=-3)
+  sec2
+sec2
+
+###tambien puede generar muestras  la funcion es sample
+ingreso<-sample(20000:50000,100)# primer vector de q dato a q dato va y el 2 vector cuantos son los datos que quiero 
+(ingreso<-sample(20000:50000,100)) # con los parentesis  lo ejecuta de manera inmedidata
+ingreso>=40000
+ingreso1<-sample(40000>ingreso,100)# de esta forma esta incorrecto los valores van ingreso<40000
+ingreso1
+
+
+
+#aleatorios par q me de varias datos  no puede tener una longitud minimo a los datos q estoy pidiendo si paa eso tengo q meter replay para q me repita los datos
+aleatorios<-sample(1:10,20,replace = TRUE)
+aleatorios<-sample(1:10,20,replace=T)
+aleatorios
+#Para seleccionar la posicion de un vector de el numero de datos q tengas 
+ingreso[50]
+ingreso[73] 
+ingreso[30:43]
+#cuando tengo corchete la primera variable es el renglon 
+ingreso[ingreso>40000]#para los datos mayores a 40000
+ingreso[ingreso<22000]
+#tambien se puede biscar los mismos datos que neceito sin meter tres veces la misma orden 
+ingreso[c(30,50,70)]
+# me da los ingresos de mi vector de la funcion 20 hasta la 50 cada 10 datos 
+ingreso[seq(20,50,10)]
+ingreso[ingreso<22000]
+ingreso[(ingreso>20000)]
+#|=0,&=y estos son varios valores  de los simbolos
+ingreso[(ingreso>20000)& ingreso<30000]
+ss<-c(5,-7,9)
+
+rr<-rep(ss,times=5)
+rr
+ss

@@ -1,0 +1,24 @@
+#crear  3 variables de 4 entradas 
+#facultad (economia ,ingenieria,ing civil, arq y derecho )
+#licenciatura (actuaria,ing civil, arquitectura , derecho)
+>#califiacion alumnos ((6,4,10,8))
+  #verificar que variable es 
+  #borrar la variable de licenciatura y facultad 
+  #graficar con pie la variable calificacion #incorporar los diversos argumentos utilizados en lase 
+  facultad<-c("economia","ingenieria","arq","derecho")
+  licenciatura<-c("actuaria","ing civil","arquitectura","derecho")
+  calificacion<-c(6,4,10,8)
+  class(facultad)
+  class(licenciatura)
+  class(calificacion)
+  rm(licenciatura)
+  rm(facultad)
+ 
+  pie(calificacion,main=
+        "Grafica de pie de las calificaciones",
+      sub=("Fuente:fac de economia"),
+      col = c("pink","red","blue"),
+      radius = 1.0,
+      clockwise = TRUE,
+      lty = 6)
+  

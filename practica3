@@ -1,0 +1,81 @@
+#ejercicio generar 3 secuencias que generen los sig datos
+#1)1000 datos que se generen de 3 en 3 y pedir a r el dato 300 del vector generado 
+#2)450 datos que su secuencia de 50 datos en 50 datos,pedirna r el dato 10 
+#2000 datos que su secuencia sea de .3 en .3 , 
+# en este caso pedir a r los datos 3,15,800 y 1999 
+##### ejercicio de datos aleatorios 
+#1)suponemos  una empresa que quiere estimar una pension n para 
+#sus trabajadores con base en la antiguedad , por lo que se requiere estimar una muestra 
+#de 500 trabajadores con base en  la antiguedad , por lo que sus rangos de antiguedad sea desde 
+#o hasta 30 años , pedir a r el ultimo dato de esta muestra
+#2) generar una muestra de 50000 datos que tengan un rango de 0 hasta 100000
+#3) generar una muestra de 50 datos que tengan un rango de 10 a 19 , pedir a r los datos 34,43 y 49 
+#ejercico 1 
+secuencia<-seq(from=0,to=1000,by=3)
+secuencia[300]
+secuencia2<-seq(from=0,to=450,by=50)
+secuencia2[10]
+secuencia3<-seq(from=0,to=2000,by=.3)
+secuencia3[3]
+secuencia3[15]
+secuencia3[800]
+secuencia3[1999]
+##ejercicio 2 
+antiguedad<-sample(0:30,500)#no se puede por lo que se tiene q hacer con replace para q haga un ciclo 
+antiguedad<-sample(0:30,500,replace=T)
+antiguedad[500]
+muestra<-sample(0:100000,50000)
+muestra2<-sample(10:19,50,replace=T)
+muestra2[34]
+muestra2[43]
+muestra2[49]
+#si le pongo un view  me va a generar mis datos como un vector pero si le pongo  data frame me los va a poner ya diferentes 
+ 
+
+#generar una matriz
+e<-1:10
+View(e)
+#para convertir la matris de utiliza dim(vector)<-c(renglones,columnas)
+dim(e)<-c(2,5)
+View(e)
+class(e)
+#ahora cambia los renglones por las columnas 
+dim(e)<-c(5,2)
+View(e)
+#para mandar llamar una funcion especifica del dato de la matriz
+e[5,2] #aqui mando llamar el dato del renglon 5 y columna 2 
+e[3,2]#dato del renglon 2 columna 2 
+e[2,2]#dato del renglon 2 columna2
+
+#si solo queremos conocer los valores de una columna se deja vacio el de el renglon
+e[,2]#valores de la columna 2
+e[,1]
+
+#para valores de solo renglones
+e[3,] #valores del renglon 3 
+e[,2]
+
+#como crear matrices
+#con la funcion matrix(numero de datos q va a teber,nrow=renglones,ncol=columnas,byrow es para ver en que orden empieza vertical u horozontal la numeracion)
+f<-matrix(110:119,nrow=5,ncol=2,byrow=TRUE)
+f
+g<-matrix(1:10,nrow=5,ncol = 2)
+g
+#tambien se le puede asignar nombres a los renglones y columnas de la matiz
+rownames(f) <-c("manzana","naranja","piña","melon","mango")
+colnames(f)<-c("mercado1","mercado2")
+#si tenemos  una matriz grane queremos preguntarle a r el nombre de las columnas 
+colnames(f)
+rownames(f)
+#para saber los datos de una columna
+f["manzana","mercado2"]
+View(f)
+h<-matrix(2:21,nrow = 4,ncol = 5)
+h
+#otra forma de generar una matris en r es 
+#el rbind es para matrices muy grandes
+#se puede poner los numeros q nececito o poner los rangos 
+i<-rbind(1:2,4:3,c(5,6),c(2,7),c(8,9))
+#cada argumento define un renglon 
+j<-cbind(5:3,c(4,5,6),9:7,c(1,5,7),3:5)
+j

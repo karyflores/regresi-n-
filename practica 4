@@ -1,0 +1,84 @@
+#la dimension que pide la matrix no la genera R por el numero de datos son 21 
+#la matriz nececita 20 datos 
+#por lo tanto se corrigió el vector de nombre vector 
+vector<-11:31
+z<-11:30
+View(z)
+dim(z)<-c(5,4)
+length(z)
+colnames(z)<-c("toluca", "pachuca", "gdl", "mtv")
+rownames(z)<-c("escuela1", "escuela2","escuela3","escuela4","escuela5")
+z[3,1]
+función<-matrix(0:17,nrow=6,ncol=3,byrow=T)
+View(función)
+función[3,3]
+
+#vamos a ver como agregar a mi matriz un renglon con rbind 
+#para pegar unrenglon a mi matriz z <- cbind(la que vamos  a modificar,c(los valores modificados ))
+z<-rbind(z,c(4,5,6,7))
+z
+rownames(z)<-c("escuela1", "escuela2","escuela3","escuela4","escuela5","escuela6")
+z
+#para pegar una columna a la matriz
+z<-cbind(z,c(14,25,36,47,99,81))
+z
+
+colnames(z)<-c("toluca","pachuca","mty","gdl","jocotitlan")
+z
+
+z["escuela1","jocotitlan"]<-28 #editar la matriz #
+edit(z)#para editar y q te apresca en cuadro directamente en los datos 
+
+
+#para multiplcar las matrices %*%  queda asi j%*i%
+#para la transpuesta se pone t (i1) la t es trasnponer 
+nombres<-c("sergio","juan","rocio","jessica") #vre unos vectores
+edad<-c(30,43,21,18)
+altura<-c(170,165,175,172)
+salario<-c(3000,4500,2200,4300)
+base<-data.frame (nombres,edad,altura,salario)
+View(base)
+#si  me equivoque en la asignacion de mi data frame lo puedo cambiar asignando otro numero en la base de datos 
+base[4,3]<-178 # mi cuarto renglon mi 3 columna 
+#a r le tengp q decir la ruta que quiero modificar y si la quieres multiplicar y estos valos son la nueva base 
+base$salario*2.2->base$salario 
+base
+base
+#para pegar una columna en mi data frame se vuelve hacer una nueva base solo agregando la nueva variable 
+peso<-c(83.2,75.2,69.3,70.5)
+base<-data.frame (nombres,edad,altura,salario,peso)
+base
+base$salario*2.2->base$salario 
+base
+base$peso*1.2->base$peso
+base
+#rpund es para redonder y se puede elejir los numeros decimales q se quiere 
+round(base$peso,2)->base$peso #redondenando
+base
+base
+round(base$peso,3)->base$peso #redondenando
+base
+base$escol<-c("prepa","lic","ninguno","prim") # de la base de va a incorporar una nueva variable lamamada escol 
+base 
+base$sexo<-c(1,1,2,2)
+#voy a sacar la variable de mi base para sacar la tabla de frecuencias de sexo
+table(base$sexo)
+#si quire ver varias tablas de frec de mis base se hace con attach para q de esa linea las tablas q jale son
+#de mi base q estoy manejando o q indique
+attach(base)
+table(sexo)
+#si ya no quiero ocupar esta base pongo detach par q pueda ocuparotra base 
+detach(base)
+
+
+#la paqueteria foreign es para descargar datos de otros programas u otras bases de datos 
+#questionr es para expandir la frecuencia de bases de datos 
+#car es para regresion 
+#instalar paqueterias desde internet o con install.packges("foreign","questionr","car")
+install.packages("foreign")
+install.packages("questionr")
+install.packages("car")
+#para mandar una paqueteria q ya descarge necesito library(nombre de la paqueteria)
+library(foreign)
+library(questionr)
+library(car)

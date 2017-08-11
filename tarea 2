@@ -4,7 +4,7 @@
 vector<-11:31
 vector<-11:30
 View(vector)
-dim(vector)<-c(5,4)
+dim(vector)<-c(4,5)
 length(vector)
 rownames(vector)<-c("toluca", "pachuca", "gdl", "mtv")
 colnames(vector)<-c("escuela1", "escuela2","escuela3","escuela4","escuela5")

@@ -82,3 +82,4 @@ install.packages("car")
 library(foreign)
 library(questionr)
 library(car)
+require(car)  #es lo mismo a library 

@@ -1,0 +1,37 @@
+#bajar una base de datos con la misma logica de  forma temporal 
+#temporal<-temfile()
+# me va abajar la ruta pero de forma temporal por lo del zip nececito descomprimir y lo tengo q guardar en otro archivo ya q etsa en temporal 
+#dowload.file("mi pagina de donde voy a descargar y al final va .zip"temporal)
+#files-unzip(temporal,lis-TRUE)$NAME
+#unzipe(temporal,files=files[grepñ("dbf",files)])
+#library(foreign)
+#SDEMT
+#ahora se va a descargar la base de datos de la forma larga 
+library(foreign)
+
+#para jalar el archivo me voy a escritorio y cipio el ARCHIVO 
+
+require(foreign)
+mti2015<-read.dbf("C://Users//SALA-D5//Desktop//mti2015_05_17_sdem_precodificado.DBF")
+table(mti2015$SEX)
+#para bajar una paqueteri qjue represente y llegue a los 27 millones ya que lo q tengo en mi base es muy pequeña 
+install.packages("questionr")
+require(questionr)
+wtd.table(mti2015$SEX, weights=mti2015$FAC_MTI)    # para los datos expandibles 
+Is(mti2015)  #para q me genere todas las variables 
+sum (mti2015$FAC_MTI)
+table(mti2015$R_DEF_ENOE)
+table(mti2015$CS_P12)
+#le voy a dar los datos anteriores con datos expandibles 
+wtd.table(mti2015$FAC_MTI,weightd=mti$R_DEF_ENOE)
+#para elejir los datos de ciertas datos se hace un cruce de variables  por ejemplo los que no saben leer con edad
+wtd.table(mti2015$EDA,mti2015$CS_P12,weights=mti2015$FAC_MTI) la primer son columna, los segundos filas 
+#vamos a filtarm la base, solamente los datos q nececito  para esto es subset
+#nececito ubicar mis variables y generar una nueva base 
+edomex<-subset(mti2015,mti2015$ENT==15) #para ver la base del estado de mexico 
+edomexmuj<-subset(mti2015,mti2015$ENT==15 & mti2015$SEX==2)# para ver ya tres variables en la misma tabla 
+agzac<-subset(mti2015,mti2015$ENT==01 | mti2015$ENT==32)# no me lo reconoce por el 01 porque el dato es caracter y no numerico se cambua a ""
+agzac<-subset(mti2015,mti2015$ENT=="01" | mti2015$ENT==32) 
+#o la podemos volver numerico con as.numeric
+as.numeric(mti2015$ENT)
+class(mti2015$ENT)

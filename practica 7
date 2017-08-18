@@ -1,0 +1,63 @@
+#etiquetar cuando le pongo nombre a las categorias y recodificar es reagrupar 
+#la recodificada crea una nueva variable de los datos q tengo por ejemplo la nueva variable tiene de los datos 1 de las dos 
+#mti$rama2[mti$roma==18 &mti$rama==2]<-  #  me dice q tengo q agrupar en rama 1 y los que esten en rama 2 me los divida en dos ramas 
+
+#practica 7 
+
+temporal <- tempfile()
+download.file("http://www.beta.inegi.org.mx/contenidos/proyectos/enchogares/modulos/mti/2015/microdatos/mti2015_bases_conapo_dbf.zip",temporal)
+files = unzip(temporal,list = TRUE)$NAME
+unzip(temporal,files = files[grep("dbf",files)])
+files
+library(foreign)
+mti<-data.frame(read.dbf("mti2015_05_17_sdem_precodificado.DBF"))
+
+mti$RAMA2[mti$RAMA==1] <-1
+mti$RAMA2[mti$RAMA==2|mti$RAMA==3] <-2
+mti$RAMA2[mti$RAMA==4|mti$RAMA==5] <-3
+mti$RAMA2[mti$RAMA==6|mti$RAMA==7] <-4
+table(mti$rama2)
+table(mti$EDA)
+
+
+#EJERCICIO
+
+#recodificar la variable EDA en una nueva varible que se llame GPOEDA y etiquetarla 
+#esta recodificacion debe quedar en 4 lineas de scrip la ecodificacion es la sig 
+#5,6,7=1 niños
+#8,9,10,11=2 preadolecentes
+#12,13,14=3 adolecentes
+#15,16,17 =4 joven 
+# una vex q hallan realizado el ejercicio genrar una tabla con datos expandidos 
+# y exportarlos a exel 
+
+mti<-data.frame(read.dbf("mti2015_05_17_sdem_precodificado.DBF"))
+
+#Recodificar el nombre de la variable( yo )
+
+table(mti15$EDA)
+mti$EDA<-as.numeric(as.character(mti15$EDA)
+class(mti$GPOEDA)
+table(mti$EDA)
+mti$GPOEDA <- factor(mti$GPOEDA, levels = c(1,2,3,4), labels = c("niños","preadolecentes","adolecentes","joven"))
+
+mti$GPOEDA[mti$EDA == 1] <- 5|mti$GPOEDA[mti$EDA == 1<-6|mti$GPOEDA[mti$EDA == 1<-7
+mti$GPOEDA[mti$EDA == 2]<-8|mti$GPOEDA[mti$EDA == 2]<-9|mti$GPOEDA[mti$EDA == 2]<-10|mti$GPOEDA[mti$EDA == 2<-11
+mti$GPOEDA[mti$EDA == 3] <- 12|mti$GPOEDA[mti$EDA == 3]<-13|mti$GPOEDA[mti$EDA == 3]<-14
+mti$GPOEDA[mti$EDA == 4] <- 15|mti$GPOEDA[mti$EDA == 4] <- 16|mti$GPOEDA[mti$EDA == 4] <- 17
+
+#lo que el prof queria q hicieramos por rangos 
+mti$GPOEDA[mti$EDA>=5 & mti$EDA<=7]<-1 
+mti$GPOEDA[mti$EDA>=8 & mti$EDA<=11]<-2
+mti$GPOEDA[mti$EDA>=12 & mti$EDA<=14]<-3
+mti$GPOEDA[mti$EDA>=15 & mti$EDA<=17]<-4
+
+#etiqueta 
+mti$GPOEDA <- factor(mti$GPOEDA, levels = c(1,2,3,4), labels = c("niños","preadolecentes","adolecentes","joven"))
+require(questionr)
+t<-wtd.table(mti$GPOEDA,weights = mti$FAC_MTI)
+t
+write.csv(t,file="practica1.cvs")
+#tarea q con write.csv se pueda abrir varias tablas en un solo archivo 
+#tarea graficar (grafica de barras) la variable GPOEDA y exportarla a un PDF y enviarla a el correo del prof  
+

@@ -1,0 +1,3 @@
+# como volver una numerica a tipo caracter tacambiar la entidad a factor numerico 
+mti2015$ent=as.numeric(mti2015$ENT) #creo una nueva variable que sea numrico con los mismo datos q ya tenia 
+class(mti2015$ent)

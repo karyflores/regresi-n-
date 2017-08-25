@@ -1,0 +1,9 @@
+#y: La distancia que recorre un carro
+#x: La velocidad del carro.
+x<-c("3","6","8","9","12","16")
+y<-c("1","7","15","18","22","4")
+length(x)
+length(y)
+plot(x, y, main ="grafica de dispersión" , xlab ="x" ,  ylab ="y" )
+
+

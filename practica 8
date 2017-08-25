@@ -5,5 +5,5 @@ y<-c("1","7","15","18","22","4")
 length(x)
 length(y)
 plot(x, y, main ="grafica de dispersión" , xlab ="x" ,  ylab ="y" )
-
+abline(x,y, col="yellow")
 
